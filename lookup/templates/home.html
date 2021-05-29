@@ -1,0 +1,29 @@
+
+{% extends 'base.html'  %}
+
+
+{%  block content    %}
+
+    {% if api %}
+
+        {% if api == "Error...." %}
+            <button type="button" class="btn btn-danger">This is an Error</button>
+
+        {% else %}
+
+            <div class="jumbotron {{category_color }}">
+              <h1 class="display-4">
+                        Status: {{ api.0.Category.Name }}
+              </h1>
+              <p class="lead"> Location : {{ api.0.ReportingArea }} </p>
+              <p class="lead"> Air Quality: {{ api.0.AQI }} </p>
+              <hr class="my-4">
+
+                <p> {{category_status }} </p>
+
+            </div>
+
+        {% endif %}
+    {% endif %}
+
+{%   endblock %}
