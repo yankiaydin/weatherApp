@@ -7,8 +7,9 @@ def home(request):
 
     if request.method == "POST":
         city = request.POST["zipcode"]
+        api_key = "YOUR API KEY"
         api_request = requests.get(
-            "https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=" + city + "&distance=5&API_KEY=C76C453E-9382-400B-9F0F-0A3C7E269E52")
+            "https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=" + city + "&distance=5&API_KEY=" + api_key)
         try:
             api = json.loads(api_request.content)
         except Exception as e:
